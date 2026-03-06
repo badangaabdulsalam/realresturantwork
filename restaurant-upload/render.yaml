@@ -1,0 +1,58 @@
+services:
+  - type: web
+    name: restaurant-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm run start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: STATE_BACKEND
+        value: supabase
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_SCHEMA
+        value: public
+      - key: SUPABASE_STATE_TABLE
+        value: app_state
+      - key: PASSWORD_RESET_EMAIL_PROVIDER
+        value: resend
+      - key: PASSWORD_RESET_EMAIL_API_KEY
+        sync: false
+      - key: PASSWORD_RESET_EMAIL_FROM
+        sync: false
+      - key: PASSWORD_RESET_EMAIL_REPLY_TO
+        sync: false
+      - key: PASSWORD_RESET_EMAIL_SUBJECT
+        value: Your password reset code
+      - key: PASSWORD_RESET_EMAIL_BRAND
+        value: My Testing Restaurant
+      - key: RESTAURANT_DASHBOARD_TOKEN
+        sync: false
+      - key: RESTAURANT_INVITE_CODE
+        sync: false
+      - key: RESTAURANT_STAFF_EMAILS
+        sync: false
+
+  - type: static
+    name: restaurant-frontend
+    buildCommand: npm run build:frontend
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: false
+    envVars:
+      - key: FRONTEND_ORDER_API_BASE_URL
+        sync: false
+      - key: FRONTEND_PAYMENT_VERIFY_ENDPOINT
+        sync: false
+      - key: FRONTEND_PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: FRONTEND_RESTAURANT_DASHBOARD_TOKEN
+        sync: false
+      - key: FRONTEND_RESTAURANT_INVITE_CODE
+        sync: false
+      - key: FRONTEND_RESTAURANT_STAFF_EMAILS
+        sync: false

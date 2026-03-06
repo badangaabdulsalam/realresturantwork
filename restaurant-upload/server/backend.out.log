@@ -1,0 +1,20 @@
+Order + payment server running on http://0.0.0.0/:::8787
+Local loopback: http://localhost:8787
+State backend mode: supabase
+GET health check at /health
+POST register users at /auth/register
+POST login users at /auth/login
+POST update profile at /auth/update-profile
+POST request reset code at /auth/request-password-reset
+POST reset password at /auth/reset-password
+POST payment checks to /verify-payment
+POST order alerts to /notify-restaurant
+POST new orders to /orders
+GET customer order by id from /orders/:id
+GET restaurant orders from /orders?adminToken=...
+PATCH restaurant status via /orders/:id/status
+NOTICE: Password reset email not configured. Set PASSWORD_RESET_EMAIL_API_KEY and PASSWORD_RESET_EMAIL_FROM.
+DEV MODE: Password reset codes are logged to console and included in API responses.
+WARNING: Using default RESTAURANT_DASHBOARD_TOKEN. Set a strong token in environment variables.
+NOTICE: RESTAURANT_INVITE_CODE is not set. Restaurant code registration is disabled unless email is in RESTAURANT_STAFF_EMAILS.
+ERROR: Supabase state backend check failed: Failed to read state from Supabase: Could not find the table 'public.app_state' in the schema cache

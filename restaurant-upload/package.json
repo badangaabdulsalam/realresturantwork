@@ -1,0 +1,15 @@
+{
+  "name": "restaurant-upload",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Restaurant ordering app frontend + backend",
+  "scripts": {
+    "start": "node server/payment-verification-server.js",
+    "start:frontend": "node server/frontend-static-server.js",
+    "build:frontend": "node server/build-frontend-dist.js",
+    "build": "npm run build:frontend"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

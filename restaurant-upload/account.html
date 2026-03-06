@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - My Testing Restaurant</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>🍽️ My Testing Restaurant</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li class="restaurant-nav-item" style="display: none;"><a href="restaurant.html" class="nav-link">Dashboard</a></li>
+                <li><a href="account.html" class="nav-link active" id="account-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-header">
+        <h1>Account</h1>
+    </div>
+
+    <section id="deployment-config-section" class="account-section deployment-config-section" style="display: none;" aria-hidden="true">
+        <div class="container">
+            <div class="profile-section-box deployment-config-panel">
+                <h3>Live API Settings</h3>
+                <p class="deployment-config-note">Set your backend URL once after deploy so orders and payment verification work on your live site.</p>
+                <p class="deployment-config-note">Phone testing tip: on the same Wi-Fi, use <strong>http://YOUR-COMPUTER-LAN-IP:8787</strong> as Backend API Base URL.</p>
+                <div class="form-group">
+                    <label for="deploy-order-api-base">Backend API Base URL</label>
+                    <input type="url" id="deploy-order-api-base" placeholder="https://your-backend-domain.com">
+                </div>
+                <div class="form-group">
+                    <label for="deploy-payment-verify-endpoint">Payment Verify Endpoint</label>
+                    <input type="url" id="deploy-payment-verify-endpoint" placeholder="https://your-backend-domain.com/verify-payment">
+                </div>
+                <div class="deployment-config-actions">
+                    <button type="button" class="btn btn-primary" onclick="saveDeploymentApiConfigFromForm()">Save API Settings</button>
+                    <button type="button" class="btn btn-secondary" onclick="testDeploymentApiConfigConnection()">Test Connection</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetDeploymentApiConfigToDefault()">Reset</button>
+                </div>
+                <p id="deployment-config-status" class="deployment-config-status">Current API: Auto mode</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section (shown when not logged in) -->
+    <section id="login-section" class="account-section">
+        <div class="container">
+            <div class="account-wrapper">
+                <!-- Login Form -->
+                <div class="auth-form" id="login-form-div">
+                    <h2>Login</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">Email or Username</label>
+                            <input type="text" id="login-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="login()">Login</button>
+                        <p class="form-text"><a href="#" onclick="switchToForgotPassword(event); return false;">Forgot your password?</a></p>
+                        <p class="form-text">Don't have an account? <a href="#" onclick="switchToRegister(event); return false;">Register here</a></p>
+                    </form>
+                </div>
+
+                <!-- Register Form (initially hidden) -->
+                <div class="auth-form" id="register-form-div" style="display: none;">
+                    <h2>Create Account</h2>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-name">Full Name</label>
+                            <input type="text" id="register-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm">Confirm Password</label>
+                            <input type="password" id="register-confirm" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-restaurant-code">Restaurant Invite Code (Staff Only)</label>
+                            <input type="text" id="register-restaurant-code" placeholder="Leave blank for customer account">
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="register()">Create Account</button>
+                        <p class="form-text">Already have an account? <a href="#" onclick="switchToLogin(event); return false;">Login here</a></p>
+                    </form>
+                </div>
+
+                <!-- Forgot Password Form (initially hidden) -->
+                <div class="auth-form" id="forgot-password-form-div" style="display: none;">
+                    <h2>Reset Password</h2>
+                    <form id="forgot-password-form">
+                        <div class="form-group">
+                            <label for="forgot-email">Email</label>
+                            <input type="email" id="forgot-email" required>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-block" onclick="requestPasswordResetCode()">Send Reset Code</button>
+                        <div class="form-group">
+                            <label for="forgot-reset-code">Reset Code</label>
+                            <input type="text" id="forgot-reset-code" placeholder="Enter 6-digit reset code" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="forgot-new-password">New Password</label>
+                            <input type="password" id="forgot-new-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="forgot-confirm-password">Confirm New Password</label>
+                            <input type="password" id="forgot-confirm-password" required>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="resetPassword()">Reset Password</button>
+                        <p class="form-text">Remembered it? <a href="#" onclick="switchToLogin(event); return false;">Back to login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Profile Section (shown when logged in) -->
+    <section id="profile-section" class="account-section" style="display: none;">
+        <div class="container">
+            <div class="profile-wrapper">
+                <div class="profile-header">
+                    <h2>Welcome, <span id="user-name"></span>!</h2>
+                    <button class="btn btn-secondary" onclick="logout()">Logout</button>
+                </div>
+
+                <!-- User Information -->
+                <div class="profile-section-box">
+                    <h3>Account Information</h3>
+                    <div class="info-item">
+                        <span class="label">Full Name:</span>
+                        <span id="profile-fullname"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Email:</span>
+                        <span id="profile-email"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Phone:</span>
+                        <span id="profile-phone"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Account Type:</span>
+                        <span id="profile-role"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Restaurant Access:</span>
+                        <span id="profile-restaurant-access"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Account Created:</span>
+                        <span id="profile-created"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Total Orders:</span>
+                        <span id="profile-order-count"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Saved Addresses:</span>
+                        <span id="profile-address-count"></span>
+                    </div>
+                    <button class="btn btn-secondary" onclick="editProfile()">Edit Profile</button>
+
+                    <div id="profile-edit-form" class="profile-edit-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="edit-profile-name">Full Name</label>
+                            <input type="text" id="edit-profile-name" placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-profile-phone">Phone Number</label>
+                            <input type="tel" id="edit-profile-phone" placeholder="e.g. 09012345678">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-profile-email">Email (read-only)</label>
+                            <input type="email" id="edit-profile-email" readonly>
+                        </div>
+                        <div class="profile-edit-actions">
+                            <button type="button" class="btn btn-primary" onclick="saveProfileChanges()">Save Profile</button>
+                            <button type="button" class="btn btn-secondary" onclick="cancelProfileEdit()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order History -->
+                <div class="profile-section-box">
+                    <h3>Order History</h3>
+                    <div id="order-history">
+                        <!-- Orders will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Saved Addresses -->
+                <div class="profile-section-box">
+                    <h3>Saved Addresses</h3>
+                    <div id="saved-addresses">
+                        <!-- Addresses will be loaded here -->
+                    </div>
+                    <div class="address-actions">
+                        <button class="btn btn-secondary" type="button" onclick="addAddress()">Add New Address</button>
+                    </div>
+                    <div id="address-form-card" class="address-form-card" style="display: none;">
+                        <div class="form-group">
+                            <label for="address-name">Address Label</label>
+                            <input type="text" id="address-name" placeholder="Home, Office, Hostel...">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-street">Street Address</label>
+                            <input type="text" id="address-street" placeholder="House number and street" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address-district">District</label>
+                                <input type="text" id="address-district" list="address-district-list" placeholder="e.g. Gwarinpa" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address-subdistrict">Subdistrict</label>
+                                <input type="text" id="address-subdistrict" list="address-subdistrict-list" placeholder="e.g. 3rd Avenue" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address-city">City</label>
+                                <input type="text" id="address-city" placeholder="Abuja" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address-zip">Area / ZIP</label>
+                                <input type="text" id="address-zip" placeholder="Optional">
+                            </div>
+                        </div>
+                        <div class="address-form-actions">
+                            <button class="btn btn-primary" type="button" onclick="saveAddressFromForm()">Save Address</button>
+                            <button class="btn btn-secondary" type="button" onclick="cancelAddressForm()">Cancel</button>
+                        </div>
+                        <datalist id="address-district-list"></datalist>
+                        <datalist id="address-subdistrict-list"></datalist>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <div class="profile-section-box">
+                    <h3>Preferences</h3>
+                    <label class="preference-item">
+                        <input type="checkbox" id="pref-newsletter" checked>
+                        <span>Subscribe to newsletter</span>
+                    </label>
+                    <label class="preference-item">
+                        <input type="checkbox" id="pref-promotions" checked>
+                        <span>Receive promotional offers</span>
+                    </label>
+                    <button class="btn btn-secondary" onclick="savePreferences()">Save Preferences</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Testing Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/runtime-config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            checkUserLogin();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

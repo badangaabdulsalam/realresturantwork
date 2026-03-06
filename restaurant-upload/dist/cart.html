@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - My Testing Restaurant</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>🍽️ My Testing Restaurant</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="cart.html" class="nav-link active">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li class="restaurant-nav-item" style="display: none;"><a href="restaurant.html" class="nav-link">Dashboard</a></li>
+                <li><a href="account.html" class="nav-link" id="account-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-header">
+        <h1>Shopping Cart</h1>
+    </div>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-wrapper">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div id="cart-items-container">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span>₦<span id="subtotal">0.00</span></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax (10%):</span>
+                        <span>₦<span id="tax">0.00</span></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Delivery Fee:</span>
+                        <span>₦<span id="delivery">5.00</span></span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span>₦<span id="total">0.00</span></span>
+                    </div>
+                    <button class="btn btn-primary btn-block" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                    <button class="btn btn-secondary btn-block" onclick="window.location.href='menu.html'">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Testing Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/runtime-config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            displayCart();
+            updateCartCount();
+            calculateTotals();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Testing Restaurant - Order Now</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>🍽️ My Testing Restaurant</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li class="restaurant-nav-item" style="display: none;"><a href="restaurant.html" class="nav-link">Dashboard</a></li>
+                <li><a href="account.html" class="nav-link" id="account-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-kicker">Fresh meals • Fast delivery • Secure checkout</span>
+            <h2>Welcome to My Testing Restaurant</h2>
+            <p>Delicious food, delivered fast to your door</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="window.location.href='menu.html'">Order Now</button>
+                <button class="btn btn-secondary" onclick="window.location.href='cart.html'">View Cart</button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <strong>30 mins</strong>
+                    <span>Average delivery</span>
+                </div>
+                <div class="hero-stat">
+                    <strong>1,200+</strong>
+                    <span>Happy customers</span>
+                </div>
+                <div class="hero-stat">
+                    <strong>17</strong>
+                    <span>Menu items</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-highlights">
+        <div class="container">
+            <div class="highlight-grid">
+                <article class="highlight-card">
+                    <h3>Chef's Special</h3>
+                    <p>Try our best-selling Pizza and Chicken Wings combo tonight.</p>
+                    <a href="menu.html" class="text-link">Explore menu</a>
+                </article>
+                <article class="highlight-card">
+                    <h3>Track Your Order</h3>
+                    <p>Checkout is streamlined so your order confirmation is instant.</p>
+                    <a href="checkout.html" class="text-link">Start checkout</a>
+                </article>
+                <article class="highlight-card">
+                    <h3>Need Help?</h3>
+                    <p>Use the AI assistant at the bottom-right to get support in-app.</p>
+                    <span class="helper-note">Available on every page</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📍 Location</h3>
+                    <p>123 Main Street Airport Road<br>Abuja<br>Nigeria</p>
+                </div>
+                <div class="info-card">
+                    <h3>⏰ Hours</h3>
+                    <p>Monday - Thursday: 10am - 10pm<br>Friday - Saturday: 10am - 11pm<br>Sunday: 11am - 10pm</p>
+                </div>
+                <div class="info-card">
+                    <h3>📞 Contact</h3>
+                    <p>Phone: 09039918242<br>Email: badangaabdulsalam@gmail.com<br>Support Hours: 9am - 11pm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Why Order From Us?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Fast Delivery</h3>
+                    <p>Your food arrives hot and fresh within 30 minutes</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Secure Payment</h3>
+                    <p>All transactions are encrypted and secure</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">👨‍🍳</span>
+                    <h3>Quality Food</h3>
+                    <p>Fresh ingredients prepared by our expert chefs</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">💳</span>
+                    <h3>Easy Payment</h3>
+                    <p>Multiple payment methods available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Testing Restaurant. All rights reserved.</p>
+            <p>Order online • Fast Delivery • Quality Guaranteed</p>
+        </div>
+    </footer>
+
+    <script src="js/runtime-config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

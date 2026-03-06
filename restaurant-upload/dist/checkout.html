@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - My Testing Restaurant</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>🍽️ My Testing Restaurant</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li class="restaurant-nav-item" style="display: none;"><a href="restaurant.html" class="nav-link">Dashboard</a></li>
+                <li><a href="account.html" class="nav-link" id="account-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-header">
+        <h1>Checkout</h1>
+    </div>
+
+    <!-- Checkout Form -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-wrapper">
+                <!-- Left Column: Forms -->
+                <div class="checkout-form">
+                    <!-- Delivery Information -->
+                    <div class="form-section">
+                        <h2>Delivery Information</h2>
+                        <form id="delivery-form">
+                            <div class="form-group">
+                                <label for="fullname">Full Name</label>
+                                <input type="text" id="fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Optional">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Delivery Address</label>
+                                <textarea id="address" rows="4" placeholder="House number, street, area, city" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="landmark">Nearby Landmark (Optional)</label>
+                                <input type="text" id="landmark" placeholder="e.g. Opposite GTBank, near the main gate">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="district">District</label>
+                                    <input type="text" id="district" list="checkout-district-list" placeholder="e.g. Wuse" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subdistrict">Subdistrict</label>
+                                    <input type="text" id="subdistrict" list="checkout-subdistrict-list" placeholder="e.g. Zone 4" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">Area / Postal Code (Optional)</label>
+                                    <input type="text" id="zip" placeholder="Optional">
+                                </div>
+                            </div>
+                            <p class="address-helper-text">Write your full delivery address clearly so your order gets to you faster.</p>
+                            <datalist id="checkout-district-list"></datalist>
+                            <datalist id="checkout-subdistrict-list"></datalist>
+                        </form>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="form-section">
+                        <h2>Payment Information</h2>
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="cash" checked>
+                                <span>Cash on Delivery</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="card">
+                                <span>Card Payment (Verified)</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="bank-transfer">
+                                <span>Bank Transfer</span>
+                            </label>
+                        </div>
+
+                        <div id="cash-details" class="payment-details">
+                            <p class="payment-note">Pay with cash when your order arrives.</p>
+                        </div>
+
+                        <div id="card-details" class="payment-details" style="display: none;">
+                            <p class="payment-note">Pay securely with your card. Your order cannot be placed until payment is verified.</p>
+                            <button type="button" class="btn btn-primary" id="card-pay-btn" onclick="startCardPaymentFlow()">Pay with Card &amp; Verify</button>
+                        </div>
+
+                        <form id="payment-form" class="payment-details" style="display: none;" novalidate>
+                            <div class="bank-transfer-box">
+                                <h3>Verified Bank Transfer</h3>
+                                <p><strong>Option 1:</strong> Click confirm below without a reference to open secure transfer checkout.</p>
+                                <p><strong>Option 2:</strong> Paste an existing transfer reference and confirm verification.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="transfer-reference">Transfer Reference</label>
+                                <input type="text" id="transfer-reference" placeholder="e.g. TRANS-9087765">
+                            </div>
+                            <div class="form-group">
+                                <label for="transfer-sender">Sender Name</label>
+                                <input type="text" id="transfer-sender" placeholder="Name on bank account">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="verify-transfer-btn" onclick="confirmBankTransferPayment()">Confirm Transfer Payment</button>
+                            <p class="payment-note payment-note-muted">Your order will only proceed after transfer verification succeeds.</p>
+                        </form>
+
+                        <div id="payment-status" class="payment-status pending">
+                            Payment status: Pending selection
+                        </div>
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <div class="form-section">
+                        <h2>Special Instructions</h2>
+                        <textarea id="instructions" placeholder="Any special requests or dietary restrictions?" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="summary-items">
+                        <!-- Items will be loaded here -->
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span>₦<span id="summary-subtotal">0.00</span></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax:</span>
+                        <span>₦<span id="summary-tax">0.00</span></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Delivery:</span>
+                        <span>₦<span id="summary-delivery">5.00</span></span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span>₦<span id="summary-total">0.00</span></span>
+                    </div>
+                    <button class="btn btn-primary btn-block" id="place-order-btn" onclick="processPayment()">Place Order</button>
+                    <button class="btn btn-secondary btn-block" onclick="window.location.href='cart.html'">Back to Cart</button>
+
+                    <div id="order-confirmation" class="order-confirmation" style="display: none;"></div>
+
+                    <div id="delivery-tracker" class="delivery-tracker" style="display: none;">
+                        <h3>Order Step Tracker</h3>
+                        <p id="tracker-status" class="tracker-status"></p>
+                        <p id="tracker-time" class="tracker-time"></p>
+                        <p id="tracker-note" class="tracker-note"></p>
+                        <ul id="tracker-steps" class="tracker-steps"></ul>
+                        <div class="tracker-progress">
+                            <div id="tracker-progress-fill" class="tracker-progress-fill"></div>
+                        </div>
+                        <p class="tracker-hint">Restaurant contact: <strong>09039918242</strong></p>
+                        <div class="tracker-actions">
+                            <a id="tracker-whatsapp-link" class="btn btn-secondary" href="#" target="_blank" rel="noopener">Contact on WhatsApp</a>
+                            <a id="tracker-sms-link" class="btn btn-secondary" href="#">Contact via SMS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Testing Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="js/runtime-config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            displayCheckoutSummary();
+            updateCartCount();
+            initCheckoutInteractions();
+        });
+    </script>
+</body>
+</html>

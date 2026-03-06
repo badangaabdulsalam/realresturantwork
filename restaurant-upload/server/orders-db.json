@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "orders": [
+    {
+      "id": "ORD-1772809515921-90af",
+      "createdAt": "2026-03-06T15:05:15.921Z",
+      "updatedAt": "2026-03-06T15:05:16.125Z",
+      "customer": "Verify User",
+      "email": "verify-1772809515@example.com",
+      "phone": "09000000000",
+      "address": "Test Street",
+      "landmark": "",
+      "district": "Test District",
+      "subDistrict": "Test Subdistrict",
+      "city": "Abuja",
+      "zip": "900001",
+      "items": [
+        {
+          "price": 2500,
+          "quantity": 1,
+          "name": "Test Meal",
+          "id": "item-1"
+        }
+      ],
+      "subtotal": 2500,
+      "tax": 0,
+      "delivery": 0,
+      "total": 2500,
+      "paymentMethod": "cash",
+      "paymentReference": "",
+      "paymentProvider": "",
+      "paymentVerifiedAt": "",
+      "transferReference": "",
+      "transferSender": "",
+      "instructions": "",
+      "status": "pending_restaurant_confirmation",
+      "statusHistory": [
+        {
+          "status": "pending_restaurant_confirmation",
+          "actor": "customer",
+          "note": "Order placed and waiting for restaurant confirmation.",
+          "at": "2026-03-06T15:05:15.921Z"
+        }
+      ],
+      "restaurantNotified": false,
+      "restaurantNotificationError": "WhatsApp notification is not configured. Set WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, and RESTAURANT_WHATSAPP_NUMBER.",
+      "restaurantMessageId": ""
+    },
+    {
+      "id": "ORD-1772796442888-2dc9",
+      "createdAt": "2026-03-06T11:27:22.862Z",
+      "updatedAt": "2026-03-06T11:31:37.426Z",
+      "customer": "abdulsalam",
+      "email": "badangaabdulsalam@gmail.com",
+      "phone": "08106464653",
+      "address": "house c47 el salem estate lugbe",
+      "landmark": "",
+      "district": "lugbe",
+      "subDistrict": "el salem",
+      "city": "Abuja",
+      "zip": "N/A",
+      "items": [
+        {
+          "id": 3,
+          "name": "Cheese Dip",
+          "price": 5.99,
+          "quantity": 1,
+          "emoji": "🧀"
+        },
+        {
+          "id": 1,
+          "name": "Chicken Wings",
+          "price": 100000,
+          "quantity": 1,
+          "emoji": "🍗"
+        }
+      ],
+      "subtotal": 100005.99,
+      "tax": 10000.599000000002,
+      "delivery": 5,
+      "total": 110011.589,
+      "paymentMethod": "Cash on Delivery",
+      "paymentReference": "",
+      "paymentProvider": "",
+      "paymentVerifiedAt": "",
+      "transferReference": "",
+      "transferSender": "",
+      "instructions": "",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "pending_restaurant_confirmation",
+          "actor": "customer",
+          "note": "Order placed and waiting for restaurant confirmation.",
+          "at": "2026-03-06T11:27:23.071Z"
+        },
+        {
+          "status": "confirmed",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to confirmed",
+          "at": "2026-03-06T11:29:18.017Z"
+        },
+        {
+          "status": "preparing",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to preparing",
+          "at": "2026-03-06T11:30:07.689Z"
+        },
+        {
+          "status": "ready_for_dispatch",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to ready_for_dispatch",
+          "at": "2026-03-06T11:30:11.076Z"
+        },
+        {
+          "status": "out_for_delivery",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to out_for_delivery",
+          "at": "2026-03-06T11:31:31.659Z"
+        },
+        {
+          "status": "delivered",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to delivered",
+          "at": "2026-03-06T11:31:37.426Z"
+        }
+      ],
+      "restaurantNotified": false,
+      "restaurantNotificationError": "WhatsApp notification is not configured. Set WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, and RESTAURANT_WHATSAPP_NUMBER.",
+      "restaurantMessageId": ""
+    },
+    {
+      "id": "ORD-1772793990849-2c5a",
+      "createdAt": "2026-03-06T10:46:30.813Z",
+      "updatedAt": "2026-03-06T10:48:55.960Z",
+      "customer": "abdulsalam badanga",
+      "email": "",
+      "phone": "09039918242",
+      "address": "house c47 el salem estate",
+      "landmark": "",
+      "district": "Lugbe",
+      "subDistrict": "el salem estate",
+      "city": "Abuja",
+      "zip": "",
+      "items": [
+        {
+          "id": 17,
+          "name": "Orange Juice",
+          "price": 3.99,
+          "quantity": 1,
+          "emoji": "🧃"
+        }
+      ],
+      "subtotal": 3.99,
+      "tax": 0.399,
+      "delivery": 5,
+      "total": 9.389,
+      "paymentMethod": "Cash on Delivery",
+      "paymentReference": "",
+      "paymentProvider": "",
+      "paymentVerifiedAt": "",
+      "transferReference": "",
+      "transferSender": "",
+      "instructions": "",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "pending_restaurant_confirmation",
+          "actor": "customer",
+          "note": "Order placed and waiting for restaurant confirmation.",
+          "at": "2026-03-06T10:46:31.046Z"
+        },
+        {
+          "status": "confirmed",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to confirmed",
+          "at": "2026-03-06T10:48:55.960Z"
+        }
+      ],
+      "restaurantNotified": false,
+      "restaurantNotificationError": "WhatsApp notification is not configured. Set WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, and RESTAURANT_WHATSAPP_NUMBER.",
+      "restaurantMessageId": ""
+    },
+    {
+      "id": "ORD-1772790633122-0976",
+      "createdAt": "2026-03-06T09:50:33.122Z",
+      "updatedAt": "2026-03-06T09:50:43.217Z",
+      "customer": "badanga",
+      "email": "abdulsalambadanga24@gmail.com",
+      "phone": "08106464653",
+      "address": "el salem",
+      "landmark": "",
+      "city": "Abuja",
+      "zip": "",
+      "items": [
+        {
+          "id": 3,
+          "name": "Cheese Dip",
+          "price": 5.99,
+          "quantity": 1,
+          "emoji": "🧀"
+        }
+      ],
+      "subtotal": 5.99,
+      "tax": 0.5990000000000001,
+      "delivery": 5,
+      "total": 11.589,
+      "paymentMethod": "Cash on Delivery",
+      "paymentReference": "",
+      "paymentProvider": "",
+      "paymentVerifiedAt": "",
+      "transferReference": "",
+      "transferSender": "",
+      "instructions": "",
+      "status": "rejected",
+      "statusHistory": [
+        {
+          "status": "pending_restaurant_confirmation",
+          "actor": "customer",
+          "note": "Order placed and waiting for restaurant confirmation.",
+          "at": "2026-03-06T09:50:33.123Z"
+        },
+        {
+          "status": "rejected",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to rejected",
+          "at": "2026-03-06T09:50:43.217Z"
+        }
+      ],
+      "restaurantNotified": false,
+      "restaurantNotificationError": "WhatsApp notification is not configured. Set WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, and RESTAURANT_WHATSAPP_NUMBER.",
+      "restaurantMessageId": ""
+    },
+    {
+      "id": "ORD-1772790314266-8bbd",
+      "createdAt": "2026-03-06T09:45:14.266Z",
+      "updatedAt": "2026-03-06T09:48:22.360Z",
+      "customer": "badanga",
+      "email": "abdulsalambadanga24@gmail.com",
+      "phone": "08106464653",
+      "address": "el salem",
+      "landmark": "",
+      "city": "Abuja",
+      "zip": "",
+      "items": [
+        {
+          "id": 2,
+          "name": "Garlic Bread",
+          "price": 4.99,
+          "quantity": 1,
+          "emoji": "🥖"
+        }
+      ],
+      "subtotal": 4.99,
+      "tax": 0.49900000000000005,
+      "delivery": 5,
+      "total": 10.489,
+      "paymentMethod": "Cash on Delivery",
+      "paymentReference": "",
+      "paymentProvider": "",
+      "paymentVerifiedAt": "",
+      "transferReference": "",
+      "transferSender": "",
+      "instructions": "",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "pending_restaurant_confirmation",
+          "actor": "customer",
+          "note": "Order placed and waiting for restaurant confirmation.",
+          "at": "2026-03-06T09:45:14.289Z"
+        },
+        {
+          "status": "confirmed",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to confirmed",
+          "at": "2026-03-06T09:46:23.087Z"
+        },
+        {
+          "status": "preparing",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to preparing",
+          "at": "2026-03-06T09:47:10.420Z"
+        },
+        {
+          "status": "ready_for_dispatch",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to ready_for_dispatch",
+          "at": "2026-03-06T09:47:35.562Z"
+        },
+        {
+          "status": "out_for_delivery",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to out_for_delivery",
+          "at": "2026-03-06T09:48:00.803Z"
+        },
+        {
+          "status": "delivered",
+          "actor": "restaurant",
+          "note": "Updated from restaurant dashboard to delivered",
+          "at": "2026-03-06T09:48:22.361Z"
+        }
+      ],
+      "restaurantNotified": false,
+      "restaurantNotificationError": "WhatsApp notification is not configured. Set WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, and RESTAURANT_WHATSAPP_NUMBER.",
+      "restaurantMessageId": ""
+    }
+  ]
+}

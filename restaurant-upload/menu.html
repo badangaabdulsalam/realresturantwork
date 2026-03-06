@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - My Testing Restaurant</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>🍽️ My Testing Restaurant</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link active">Menu</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li class="restaurant-nav-item" style="display: none;"><a href="restaurant.html" class="nav-link">Dashboard</a></li>
+                <li><a href="account.html" class="nav-link" id="account-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-header">
+        <h1>Our Menu</h1>
+        <p>Select from our delicious offerings</p>
+    </div>
+
+    <!-- Menu Filter -->
+    <section class="menu-filter">
+        <div class="container">
+            <div class="menu-tools">
+                <div class="search-box">
+                    <input type="text" id="menu-search" placeholder="Search meals, drinks, desserts..." oninput="handleMenuSearch(this.value)">
+                </div>
+                <div class="sort-box">
+                    <label for="menu-sort">Sort by</label>
+                    <select id="menu-sort" onchange="handleMenuSort(this.value)">
+                        <option value="default">Recommended</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterMenu('all', this)">All Items</button>
+                <button class="filter-btn" onclick="filterMenu('appetizers', this)">Appetizers</button>
+                <button class="filter-btn" onclick="filterMenu('main', this)">Main Courses</button>
+                <button class="filter-btn" onclick="filterMenu('sides', this)">Sides</button>
+                <button class="filter-btn" onclick="filterMenu('desserts', this)">Desserts</button>
+                <button class="filter-btn" onclick="filterMenu('beverages', this)">Beverages</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid" id="menu-grid">
+                <!-- Menu items will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Item Detail Modal -->
+    <div id="item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeItemModal()">&times;</span>
+            <div class="modal-body">
+                <div id="modal-image" class="modal-emoji" aria-label="Selected menu item"></div>
+                <div class="modal-info">
+                    <h2 id="modal-name"></h2>
+                    <p id="modal-description"></p>
+                    <div class="modal-details">
+                        <p><strong>Price:</strong> ₦<span id="modal-price"></span></p>
+                        <p><strong>Calories:</strong> <span id="modal-calories"></span></p>
+                    </div>
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" min="1" value="1">
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Testing Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/runtime-config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize menu on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            displayMenu('all');
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

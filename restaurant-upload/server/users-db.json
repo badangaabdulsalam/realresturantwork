@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "users": [
+    {
+      "id": "USR-1772791388569-6e4f",
+      "name": "abdulsalam",
+      "email": "badangaabdulsalam@gmail.com",
+      "passwordHash": "e2ff9476542cf11ead86457c62de4b67d50fa710ca435ea5aeda6335ed3011508301a600c1fffb3e23068cbb93256e72087899fc5bfab056fa26f5b8eec56f29",
+      "passwordSalt": "e269a6592e2dbb2f74ad1ea8cdb8c3cc",
+      "passwordUpdatedAt": "2026-03-06T10:03:07.305Z",
+      "role": "customer",
+      "isRestaurantStaff": false,
+      "createdAt": "2026-03-06T10:03:07.305Z",
+      "created": "3/6/2026",
+      "orders": [],
+      "addresses": [],
+      "preferences": {
+        "newsletter": true,
+        "promotions": true
+      },
+      "resetPassword": {
+        "codeSalt": "c14296b73ee6a97a433b2254",
+        "codeHash": "d530be8b3b645ef580d5750ab4ed361f189f976616eca6f8a9d4758c41b1bc91d6871e0974270e473eb6802b10be6f9314368e9ef7704dcb290c6b03bf5c8994",
+        "requestedAt": "2026-03-06T15:03:59.560Z",
+        "expiresAt": "2026-03-06T15:18:59.562Z",
+        "attempts": 0,
+        "consumedAt": ""
+      }
+    },
+    {
+      "id": "USR-1772809464841-0398",
+      "name": "Smoke Test User",
+      "email": "smoke-1772809464@example.com",
+      "phone": "",
+      "passwordHash": "fb4df4765dd7bbaf65e97afe318992cb58b4f909f5e0692b614df9363f6f554ad382274473153ad449a9cd334d16c003beb5d799c3b97de96feb9ad5891600f1",
+      "passwordSalt": "8b14dd1cc8bfd161cebc18c57ee157c2",
+      "passwordUpdatedAt": "2026-03-06T15:04:24.690Z",
+      "role": "customer",
+      "isRestaurantStaff": false,
+      "createdAt": "2026-03-06T15:04:24.690Z",
+      "created": "3/6/2026",
+      "orders": [],
+      "addresses": [],
+      "preferences": {
+        "newsletter": true,
+        "promotions": true
+      },
+      "resetPassword": {
+        "codeSalt": "8f8fcecbf82a3f2a893259d7",
+        "codeHash": "c5a6141bcec77a56102a20859aa0df211fdb6c7d38b4c650e921445feb6e902b3f291d4fda5e6527f2fb400a50f692161587046a07db794297ad44b675c8fff2",
+        "requestedAt": "2026-03-06T15:04:25.983Z",
+        "expiresAt": "2026-03-06T15:19:25.983Z",
+        "attempts": 0,
+        "consumedAt": ""
+      }
+    },
+    {
+      "id": "USR-1772809515460-ec6d",
+      "name": "Verify User",
+      "email": "verify-1772809515@example.com",
+      "phone": "",
+      "passwordHash": "171d16bd6cfeb100dbc837baa52501f1fd7ed2c87e2e35f87aa373ffafea75ac96fb78b13ce51d0826cdfcf044a55cfbaaef88c994389f2787a466b4a0be2014",
+      "passwordSalt": "8c1ca998a581232ee1547faed51d9ea9",
+      "passwordUpdatedAt": "2026-03-06T15:05:15.349Z",
+      "role": "customer",
+      "isRestaurantStaff": false,
+      "createdAt": "2026-03-06T15:05:15.349Z",
+      "created": "3/6/2026",
+      "orders": [],
+      "addresses": [],
+      "preferences": {
+        "newsletter": true,
+        "promotions": true
+      },
+      "resetPassword": {
+        "codeSalt": "39aa2b8e35473a16a4bea53a",
+        "codeHash": "8cfd7a2144b6765a329ff629d7e0023b93d1408e9e9233583ae6f821ec7bfe71a70dba405fbe874d938492f005e45dc790bac66ae6ad7f7c4dcc8d53705215a1",
+        "requestedAt": "2026-03-06T15:05:15.881Z",
+        "expiresAt": "2026-03-06T15:20:15.881Z",
+        "attempts": 0,
+        "consumedAt": ""
+      }
+    },
+    {
+      "id": "USR-1772809535388-27f4",
+      "name": "Smoke Test User",
+      "email": "smoke-1772809535@example.com",
+      "phone": "",
+      "passwordHash": "d592354b314292dce4b58f398eaecc2730e9eca582e88b09873d39e2d4662179d17f99d183547654bb00e8ed864b51d9559b86e49bb2935987833dc7596de056",
+      "passwordSalt": "490b1915487f6a90f984bcc51303d8d3",
+      "passwordUpdatedAt": "2026-03-06T15:05:35.275Z",
+      "role": "customer",
+      "isRestaurantStaff": false,
+      "createdAt": "2026-03-06T15:05:35.275Z",
+      "created": "3/6/2026",
+      "orders": [],
+      "addresses": [],
+      "preferences": {
+        "newsletter": true,
+        "promotions": true
+      },
+      "resetPassword": {
+        "codeSalt": "8f52f5ce0103d94abcd3c858",
+        "codeHash": "57d4a6988a1460e5edec80114a0d6361ee388088b2bd5a287154c69c9302cece2273933489deca9033bcf86762b8ad3c941d9139a988c8988a20e302b6bc971c",
+        "requestedAt": "2026-03-06T15:05:35.668Z",
+        "expiresAt": "2026-03-06T15:20:35.668Z",
+        "attempts": 0,
+        "consumedAt": ""
+      }
+    },
+    {
+      "id": "USR-1772811566569-594d",
+      "name": "Smoke Test User",
+      "email": "smoke-1772811566@example.com",
+      "phone": "",
+      "passwordHash": "80685b042fd3019d8995cda29b409d244a965c3acdef5c14abd02a0d37c5265f6ea4583cd00d272785e4cc42c51a24092c2ef321a9c80ff26d57fd111d2b33a4",
+      "passwordSalt": "4abf6797e052b42e18db916bbcf28102",
+      "passwordUpdatedAt": "2026-03-06T15:39:26.382Z",
+      "role": "customer",
+      "isRestaurantStaff": false,
+      "createdAt": "2026-03-06T15:39:26.382Z",
+      "created": "3/6/2026",
+      "orders": [],
+      "addresses": [],
+      "preferences": {
+        "newsletter": true,
+        "promotions": true
+      },
+      "resetPassword": {
+        "codeSalt": "0b4988096152d4883bf44a4c",
+        "codeHash": "6e5051c77c8182e7d5f11cdfb94626659b52d692d4cf312e7b1647affddd3ea2efdf1e2b3966183568b4cff8728926e12041d165143ba28c9730c0d11082c9f9",
+        "requestedAt": "2026-03-06T15:39:27.467Z",
+        "expiresAt": "2026-03-06T15:54:27.467Z",
+        "attempts": 0,
+        "consumedAt": ""
+      }
+    }
+  ]
+}
